@@ -65,14 +65,21 @@ A conexão com o banco de dados é feita via variável `DATABASE_URL`. Certifiqu
 
 Siga os passos abaixo para executar o projeto:
 
-1. **Ingestão do PDF**:
+1. **Subir o banco de dados**:
+   Execute o seguinte comando para subir o banco de dados Postgres usando Docker:
+
+   ```bash
+   docker compose up -d
+   ```
+
+2. **Ingestão do PDF**:
    Execute o seguinte comando para carregar e processar o arquivo PDF:
 
    ```bash
    python src/ingest.py
    ```
 
-2. **Chat Interativo**:
+3. **Chat Interativo**:
    Após a ingestão bem-sucedida, inicie o chat executando:
 
    ```bash
