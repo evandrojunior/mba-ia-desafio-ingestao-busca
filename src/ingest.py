@@ -45,7 +45,13 @@ def ingest_pdf():
         use_jsonb=True,
     )
 
-    store.add_documents(documents=enriched, ids=ids)
+    try:
+        store.add_documents(documents=enriched, ids=ids)
+    except Exception as e:
+        print(f"Erro ao adicionar documentos: {e}")
+        return
+    
+    print(f"Ingestão concluída com sucesso! {len(enriched)} documentos foram inseridos na coleção de vetores.")
 
 if __name__ == "__main__":
     ingest_pdf()
